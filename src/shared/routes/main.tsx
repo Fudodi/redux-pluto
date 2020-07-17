@@ -6,4 +6,5 @@ export { default as Home } from "../components/organisms/Home";
 export { default as Main } from "../components/organisms/Main";
 export { default as Canvas } from "../components/organisms/Canvas";
 export { default as NotFound } from "../components/organisms/NotFound";
+export { default as Hello } from "../components/organisms/Hello";
 export { default as DefaultLayout } from "../components/templates/DefaultLayout";

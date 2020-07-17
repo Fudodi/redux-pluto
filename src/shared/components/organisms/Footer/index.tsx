@@ -1,18 +1,21 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import styled from "styled-components";
 import { format } from "date-fns";
 import Counter from "../Counter";
 
-type Props = {};
+type Props = { children: ReactNode };
 
 export default function Footer(props: Props) {
   const today = format(new Date(), "yyyy/MM/dd");
+  const { children } = props;
 
   return (
     <Root>
       <div>
         <Counter />
         <Today>{today}</Today>
+        <div>duplicate</div>
+        <div>{children}</div>
       </div>
     </Root>
   );

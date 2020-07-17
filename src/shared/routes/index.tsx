@@ -12,6 +12,7 @@ import {
   Main,
   NotFound,
   DefaultLayout,
+  Hello,
 } from "./main";
 
 // chunked components
@@ -28,6 +29,7 @@ export default function getRoutes(store: any) {
   const $Route: any = Route; // avoid type check
   const $IndexRoute: any = IndexRoute; // avoid type check
 
+  // ひとつ下の階層のRouteをchildrenというpropsとして受け取ってるっぽい
   return (
     <Route path="/" component={App}>
       <Route component={DefaultLayout}>
@@ -59,6 +61,8 @@ export default function getRoutes(store: any) {
             onEnter={bindOnEnter(requiredLogin)}
             title="Hacker News"
           />
+
+          <$Route path="hello" component={Hello} />
 
           <$Route path="login" getComponent={loadLogin} title="Login" />
           <$Route
