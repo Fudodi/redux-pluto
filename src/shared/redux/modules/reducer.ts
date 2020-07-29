@@ -11,7 +11,10 @@ import loading, { State as LoadingState } from "./loading";
 import hackerNews, { State as HackerNewsState } from "./hackerNews";
 import uploadSample, { State as UploadSampleState } from "./uploadSample";
 import canvas, { State as CanvasState } from "./canvas";
+// helloのreducerとStateの型定義をインポート
+import hello, { State as HelloState } from "./hello";
 
+// ここでStateをまとめている
 export type RootState = {
   app: {
     auth: AuthState;
@@ -23,6 +26,7 @@ export type RootState = {
     agreedSample: AgreedSampleState;
     uploadSample: UploadSampleState;
     canvas: CanvasState;
+    hello: HelloState;
   };
   // libraries
   form: any;
@@ -30,6 +34,7 @@ export type RootState = {
   routing: any;
 };
 
+// reducerをまとめている
 export default combineReducers({
   app: combineReducers({
     auth,
@@ -41,6 +46,7 @@ export default combineReducers({
     uploadSample,
     hackerNews,
     canvas,
+    hello,
   }),
   form: formReducer,
   reduxAsyncLoader,
@@ -80,4 +86,8 @@ export function hackerNewsSelector(state: RootState) {
 
 export function canvasSelector(state: RootState) {
   return state.app.canvas;
+}
+// RootStateで全部のstateを読んでからhelloを呼び出し
+export function helloSelector(state: RootState) {
+  return state.app.hello;
 }
